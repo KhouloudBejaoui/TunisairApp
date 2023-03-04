@@ -24,7 +24,4 @@ public class Pilote {
   private String telephone;
   private String cin;
 
-
-
-
 }
