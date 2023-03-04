@@ -10,10 +10,11 @@ import lombok.*;
 @Getter
 @Setter
 public class PiloteDTO {
-    private long id;
-    private String nom;
-    private String prenom;
-    private String email;
-    private String telephone;
-    private String cin;
+  private long id;
+
+  private String nom;
+  private String prenom;
+  private String email;
+  private String telephone;
+  private String cin;
 }
