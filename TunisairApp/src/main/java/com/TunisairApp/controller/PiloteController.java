@@ -10,4 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class PiloteController {
     @Autowired
     PiloteService piloteService;
+
+    public PiloteController(PiloteService piloteService) {
+        super();
+        this.piloteService = piloteService;
+    }
 }
