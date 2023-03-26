@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -13,14 +14,15 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Aeroport {
+public class Avion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    private String nom;
-    private String adresse;
+    private String etat;
+    private int capacite;
+    private String company;
+    private String modele;
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aeroport")
-    private List<Vol> vols;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "avion")
+    private List<Vol> vol;
 }

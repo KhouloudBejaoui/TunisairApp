@@ -1,9 +1,14 @@
 package com.TunisairApp.dto;
 
+import com.TunisairApp.entity.Aviateur;
+import com.TunisairApp.entity.Staff;
 import com.TunisairApp.entity.Vol;
 import com.TunisairApp.enummeration.ARole;
+import com.TunisairApp.enummeration.ERole;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
@@ -11,14 +16,14 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class AviateurDTO {
-    private int cin;
+public class EmployeDTO {
+    private int idEmp;
+
     private String nom;
     private String prenom;
     private float taille;
-    private int age;
-    private String nationalite;
-    private int telephone;
-    private ARole role;
-    private transient Vol vol;
+    private ERole role;
+    private transient Staff staff;
+
+
 }

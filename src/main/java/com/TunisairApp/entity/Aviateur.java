@@ -3,10 +3,8 @@ package com.TunisairApp.entity;
 import com.TunisairApp.enummeration.ARole;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,8 +14,7 @@ import javax.persistence.Id;
 public class Aviateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String cin;
-
+    private int cin;
     private String nom;
     private String prenom;
     private float taille;
@@ -25,5 +22,7 @@ public class Aviateur {
     private String nationalite;
     private int telephone;
     private ARole role;
+    @ManyToOne
+    private Vol vol;
 
 }

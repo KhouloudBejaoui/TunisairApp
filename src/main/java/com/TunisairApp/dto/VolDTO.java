@@ -1,7 +1,6 @@
 package com.TunisairApp.dto;
 
-import com.TunisairApp.entity.Aeroport;
-import com.TunisairApp.entity.Aviateur;
+import com.TunisairApp.entity.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -19,7 +18,11 @@ public class VolDTO {
 
     private Date dateDepart;
     private Date dateArrivee;
-    private Aeroport aeroportDepart;
-    private Aeroport aeroportArrive;
+    private transient Aeroport aeroport;
+    private transient Staff staff;
+    private transient List <Ense_Restauration> ense_restauration;
+
+    private transient Avion avion;
+    //private Aeroport aeroportArrive;
     private transient List<Aviateur> aviateur;
 }

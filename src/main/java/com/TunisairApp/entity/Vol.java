@@ -21,11 +21,20 @@ public class Vol {
     private Date dateDepart;
     private Date dateArrivee;
     @ManyToOne
-    private Aeroport aeroportDepart;
-    private Aeroport aeroportArrive;
+    private Avion avion;
+    @ManyToOne
+    private Staff staff;
+    @ManyToOne
+    private Ense_Restauration ense_restauration;
+    @ManyToOne
+    private Aeroport aeroport;
+    //private Aeroport aeroportArrive;
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vol")
     private List<Aviateur> aviateur;
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vol")
+    private List<Ense_Restauration> ense_restaurations;
 
 
 

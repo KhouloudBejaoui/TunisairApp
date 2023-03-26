@@ -1,10 +1,10 @@
 package com.TunisairApp.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -13,14 +13,13 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Aeroport {
+public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    private String nom;
-    private String adresse;
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aeroport")
-    private List<Vol> vols;
+    private int idStaff;
+@OneToMany(cascade = CascadeType.ALL, mappedBy = "staff")
+private List <Employe> employe;
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staff")
+    private List<Vol> vol;
 }
