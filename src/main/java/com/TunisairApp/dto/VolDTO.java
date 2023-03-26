@@ -14,16 +14,14 @@ import java.util.List;
 @Getter
 @Setter
 public class VolDTO {
-    private int id;
+    private long id;
 
     private Date dateDepart;
     private Date dateArrivee;
     private transient Aeroport aeroport;
     private transient Staff staff;
-    private transient List <Ense_Restauration> ense_restauration;
-
     private transient Avion avion;
-    //private Aeroport aeroportArrive;
     private transient List<Aviateur> aviateur;
+    private transient List<EntrepriseRestauration> entrepriseRestaurations;
     private transient List<Passager> passager;
 }

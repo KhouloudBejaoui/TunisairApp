@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 public class AvionDTO {
-    private int id;
+    private long id;
     private String etat;
     private int capacite;
     private String company;

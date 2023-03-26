@@ -16,6 +16,7 @@ public class Passager {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cin ;
+
     private String nom;
     private String prenom;
     private String numPassport;

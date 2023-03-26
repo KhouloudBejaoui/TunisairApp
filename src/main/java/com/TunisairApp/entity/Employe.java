@@ -17,13 +17,14 @@ import java.util.List;
 public class Employe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEmp;
+    private long id;
 
     private String nom;
     private String prenom;
     private float taille;
     private ERole role;
-  @ManyToOne
+
+    @ManyToOne
     private Staff staff;
 
 }

@@ -12,6 +12,7 @@ import lombok.*;
 @Getter
 @Setter
 public class AviateurDTO {
+    private long id;
     private int cin;
     private String nom;
     private String prenom;

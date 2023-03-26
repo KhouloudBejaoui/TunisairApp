@@ -16,8 +16,8 @@ import java.util.List;
 @Getter
 @Setter
 public class StaffDTO {
-    private int idStaff;
-private transient List <Employe> employe;
+    private long id;
+    private transient List<Employe> employe;
     private transient List<Vol> vol;
 
 

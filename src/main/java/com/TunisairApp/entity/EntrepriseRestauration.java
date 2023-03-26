@@ -1,9 +1,6 @@
 package com.TunisairApp.entity;
 
-import com.TunisairApp.enummeration.ARole;
-import com.TunisairApp.enummeration.ERole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,18 +12,20 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Ense_Restauration {
+public class EntrepriseRestauration {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEse;
-    @ManyToOne
-    private Vol vol;
+    private long id;
 
     private String nom;
     private String adresse;
     private float tel;
+
+    @ManyToOne
+    private Vol vol;
+
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ense_restauration")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "entrepriseRestauration")
     private List<Menu> menu;
 
 }

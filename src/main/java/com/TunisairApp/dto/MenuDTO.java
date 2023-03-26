@@ -1,13 +1,8 @@
 package com.TunisairApp.dto;
 
-import com.TunisairApp.entity.Aviateur;
-import com.TunisairApp.entity.Ense_Restauration;
-import com.TunisairApp.entity.Vol;
-import com.TunisairApp.enummeration.ARole;
+import com.TunisairApp.entity.EntrepriseRestauration;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-
-import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
@@ -16,9 +11,9 @@ import java.util.List;
 @Getter
 @Setter
 public class MenuDTO {
-    private int idMenu;
+    private long id;
 
-    private transient Ense_Restauration ense_restauration;
+    private transient EntrepriseRestauration entrepriseRestauration;
 
 
 }

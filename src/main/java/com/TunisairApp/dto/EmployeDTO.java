@@ -17,13 +17,12 @@ import java.util.List;
 @Getter
 @Setter
 public class EmployeDTO {
-    private int idEmp;
+    private long id;
 
     private String nom;
     private String prenom;
     private float taille;
     private ERole role;
     private transient Staff staff;
-
 
 }

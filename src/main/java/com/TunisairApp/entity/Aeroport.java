@@ -16,10 +16,11 @@ import java.util.List;
 public class Aeroport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     private String nom;
     private String adresse;
+
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "aeroport")
     private List<Vol> vols;

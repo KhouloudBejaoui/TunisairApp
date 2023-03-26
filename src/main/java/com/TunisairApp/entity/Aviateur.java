@@ -14,6 +14,8 @@ import javax.persistence.*;
 public class Aviateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     private int cin;
     private String nom;
     private String prenom;
@@ -22,6 +24,7 @@ public class Aviateur {
     private String nationalite;
     private int telephone;
     private ARole role;
+
     @ManyToOne
     private Vol vol;
 

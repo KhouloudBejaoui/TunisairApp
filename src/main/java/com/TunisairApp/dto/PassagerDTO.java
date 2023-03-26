@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 public class PassagerDTO
 {
-    private int cin ;
+    private long cin ;
     private String nom;
     private String prenom;
     private String numPassport;

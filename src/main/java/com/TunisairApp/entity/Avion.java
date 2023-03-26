@@ -17,11 +17,12 @@ import java.util.List;
 public class Avion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String etat;
     private int capacite;
     private String company;
     private String modele;
+
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "avion")
     private List<Vol> vol;

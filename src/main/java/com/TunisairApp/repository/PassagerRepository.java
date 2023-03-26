@@ -1,6 +1,5 @@
 package com.TunisairApp.repository;
 
-import com.TunisairApp.entity.Ense_Restauration;
 import com.TunisairApp.entity.Passager;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

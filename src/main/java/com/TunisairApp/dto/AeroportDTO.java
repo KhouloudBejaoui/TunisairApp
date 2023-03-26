@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 public class AeroportDTO {
-    private int id;
+    private long id;
     private String nom;
     private String adresse;
     private transient List<Vol> vols;

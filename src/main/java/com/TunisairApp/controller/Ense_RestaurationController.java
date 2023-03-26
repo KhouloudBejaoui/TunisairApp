@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class Ense_RestaurationController {
 
     @Autowired
-    Ense_RestaurationService ense_restaurationService;
+    EntrepriseRestaurationService entreprise_restaurationService;
 
-    public Ense_RestaurationController(Ense_RestaurationService ense_restaurationService) {
+    public Ense_RestaurationController(EntrepriseRestaurationService entreprise_restaurationService) {
         super();
-        this.ense_restaurationService = ense_restaurationService;
+        this.entreprise_restaurationService = entreprise_restaurationService;
     }
 }
