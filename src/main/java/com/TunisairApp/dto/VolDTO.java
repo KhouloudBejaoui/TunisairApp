@@ -25,4 +25,5 @@ public class VolDTO {
     private transient Avion avion;
     //private Aeroport aeroportArrive;
     private transient List<Aviateur> aviateur;
+    private transient List<Passager> passager;
 }

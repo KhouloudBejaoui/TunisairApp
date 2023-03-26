@@ -1,7 +1,6 @@
 package com.TunisairApp.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,14 +12,19 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Aeroport {
+public class Passager {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+    private int cin ;
     private String nom;
-    private String adresse;
+    private String prenom;
+    private String numPassport;
+    private String email;
+    private int telephone;
+
     @JsonIgnore
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "aeroport")
-    private List<Vol> vols;
+    @ManyToMany(cascade = CascadeType.MERGE, mappedBy = "passager")
+    private List<Vol> vol;
+
+
 }

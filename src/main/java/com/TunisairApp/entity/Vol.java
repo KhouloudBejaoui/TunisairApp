@@ -1,5 +1,6 @@
 package com.TunisairApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -26,8 +27,8 @@ public class Vol {
     private Staff staff;
     @ManyToOne
     private Ense_Restauration ense_restauration;
-    @ManyToOne
-    private Aeroport aeroport;
+    @ManyToMany(cascade = CascadeType.MERGE)
+    private List <Aeroport> aeroport;
     //private Aeroport aeroportArrive;
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vol")
@@ -35,6 +36,9 @@ public class Vol {
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vol")
     private List<Ense_Restauration> ense_restaurations;
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    private List<Passager> passager;
 
 
 
