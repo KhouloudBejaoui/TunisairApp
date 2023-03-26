@@ -1,5 +1,6 @@
 package com.TunisairApp.dto;
 
+import com.TunisairApp.enummeration.ARole;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -9,16 +10,14 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class CopiloteDTO {
-
-    private long id;
+public class AviateurDTO {
+    private String cin;
 
     private String nom;
     private String prenom;
-
-    private String nationalite;
-    private int age;
     private float taille;
-    private String telephone;
-    private String cin;
+    private int age;
+    private String nationalite;
+    private int telephone;
+    private ARole role;
 }

@@ -1,19 +1,18 @@
 package com.TunisairApp.controller;
 
-import com.TunisairApp.service.PiloteService;
+import com.TunisairApp.service.AviateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/")
-public class PiloteController {
+public class AviateurController {
     @Autowired
-    PiloteService piloteService;
+    AviateurService aviateurService;
 
-    public PiloteController(PiloteService piloteService) {
+    public AviateurController(AviateurService aviateurService) {
         super();
-        this.piloteService = piloteService;
+        this.aviateurService = aviateurService;
     }
-
 }

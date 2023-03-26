@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="TunisairApp" target="11" />
+      <module name="TunisairApp" target="12" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
