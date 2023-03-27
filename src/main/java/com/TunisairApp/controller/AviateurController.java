@@ -67,4 +67,32 @@ public class AviateurController {
         }
     }
 
+
+    @PutMapping(value = "/Aviateur/{id}")
+    public ResponseEntity<Object> updateAviateur(@PathVariable("id") long id, @RequestBody AviateurDTO aviateurDTO) {
+        Aviateur avReq = modelMapper.map(aviateurDTO, Aviateur.class);
+        ResponseEntity<Aviateur> av = aviateurService.updateAviateur(id, avReq);
+
+        if (av.getStatusCodeValue() == 200) {
+            AviateurDTO avRes = modelMapper.map(av.getBody(), AviateurDTO.class);
+            return new ResponseEntity<>(avRes, HttpStatus.OK);
+        } else if (av.getStatusCodeValue() == 400) {
+            return new ResponseEntity<>(BAD_REQUEST, HttpStatus.BAD_REQUEST);
+        } else if(av.getStatusCodeValue() == 404){
+            return new ResponseEntity<>(NOT_FOUND,HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(NULL,HttpStatus.OK);
+
+        }
+
+    }
+
+    @DeleteMapping(value = "/Aviateur/{id}")
+    public void deleteAviateur(@PathVariable("id") long id) {
+        aviateurService.deleteAviateur(id);
+    }
+
+
+
+
 }

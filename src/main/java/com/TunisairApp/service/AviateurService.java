@@ -39,4 +39,27 @@ public class AviateurService {
         return ResponseEntity.ok(aviateur);
     }
 
+
+    public ResponseEntity<Aviateur> updateAviateur(long id, Aviateur aviateur) {
+
+        if (aviateur == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        Optional<Aviateur> optionalAviateur = aviateurRepository.findById(id);
+        if (optionalAviateur.isPresent()) {
+            aviateur.setId(id);
+            aviateurRepository.save(aviateur);
+            return ResponseEntity.ok(optionalAviateur.get());
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+    public void deleteAviateur(long id) {
+
+        aviateurRepository.deleteById(id);
+    }
+
+
 }
