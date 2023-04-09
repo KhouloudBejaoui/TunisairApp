@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/oauth")
 public class AviateurController {
 
     public final static String FOUND = "FOUND";

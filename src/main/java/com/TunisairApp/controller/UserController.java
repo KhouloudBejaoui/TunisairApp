@@ -4,23 +4,36 @@ import com.TunisairApp.dto.userDTO;
 import com.TunisairApp.dto.userDTO;
 import com.TunisairApp.entity.Aviateur;
 import com.TunisairApp.entity.User;
+import com.TunisairApp.security.jwt.JwtUtils;
+import com.TunisairApp.security.services.UserDetailsImpl;
 import com.TunisairApp.service.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import com.TunisairApp.payload.response.JwtResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/oauth")
 public class UserController {
     public final static String FOUND = "FOUND";
     public final static String BAD_REQUEST = "BAD_REQUEST";
     public final static String NOT_FOUND = "NOT_FOUND";
     public final static String NULL = "ID NULL DETECTED";
+
+    @Autowired
+    AuthenticationManager authenticationManager;
+
+    @Autowired
+    JwtUtils jwtUtils;
     @Autowired
     UserService userService;
 
@@ -88,6 +101,28 @@ public class UserController {
     @DeleteMapping(value = "/User/{id}")
     public void deleteUser(@PathVariable("id") long id) {
         userService.deleteUser(id);}
+
+
+
+    @PostMapping("/signin")
+    public ResponseEntity<Object> authenticateUser(@RequestBody userDTO usersDTO) {
+        User user = modelMapper.map(usersDTO, User.class);
+        if (!userService.existsEmail(user.getEmail())) {
+            return new ResponseEntity<>(FOUND, HttpStatus.OK);
+        }
+
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = jwtUtils.generateJwtToken(authentication);
+
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        return new ResponseEntity<>(new JwtResponse(jwt,
+                userDetails.getId(),
+                userDetails.getEmail()
+        ), HttpStatus.OK);
+    }
 }
 
     
